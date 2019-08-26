@@ -1,2 +1,7 @@
 <h1><%= @stock.name %></h1>
-<h2><%= @stock.current_price.to_f %></h2>
+
+<% if @stock.gain == true %>
+  <h2 style="color:green"><%= @stock.current_price.to_f %></h2>
+<% else %>
+  <h2 style="color:red"><%= @stock.current_price.to_f %></h2>
+<% end %>
