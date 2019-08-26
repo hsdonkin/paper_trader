@@ -33,10 +33,13 @@ Stock.destroy_all
     )
     stock.save
 
+    base_time = Time.now
+    counter = 0
     10.times do
+      counter += 1
       value = stock.values.new(
         :price => (stock.daily_open - rand(-3..3)),
-        :log_time => Time.now
+        :log_time => base_time + counter.hours
       )
       value.save
     end

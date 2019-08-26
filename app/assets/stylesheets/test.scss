@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .chart-holder{
-  height: 200px;
-  width: 300px;
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.chart-holder canvas{
+  display: block;
+  margin: auto;
+  padding: 0;
 }
