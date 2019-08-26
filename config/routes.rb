@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get "/test", to: "test#index"
 
+  resources :stocks
+
 end

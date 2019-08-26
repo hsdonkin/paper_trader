@@ -70,6 +70,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (2.1.2)
+      i18n (>= 0.8)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.13.1)
@@ -215,6 +217,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  faker
   googlecharts
   iex-ruby-client
   jbuilder (~> 2.5)
