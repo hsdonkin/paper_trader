@@ -11,4 +11,5 @@ class ApplicationRecord < ActiveRecord::Base
     JSON.parse(self.daily(symbol))["Time Series (5min)"].first[1]["4. close"]
   end
 
+
 end
