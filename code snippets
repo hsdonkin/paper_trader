@@ -1,0 +1,8 @@
+parse json file ["Time Series (5min)"].first[1]["4. close"]
+
+
+
+def daily(symbol)
+  stock = Stock.new(:symbol => symbol)
+  JSON.parse(stock.daily(symbol))["Time Series (5min)"].first[1]["4. close"]
+end
