@@ -1,8 +1,12 @@
+
+require 'byebug'
+
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios
   has_many :trades
 
+  include API
 
   def self.search(query)
     RestClient::Request.execute(
@@ -15,15 +19,19 @@ class Stock < ApplicationRecord
     symbol = search["1. symbol"]
     name = search["2. name"]
     region = search["4. region"]
+    volume = Stock::Call.current_volume(symbol)
+    current_price = Stock::Call.current_price(symbol)
+    daily_open = Stock::Call.daily_open(symbol)
+    weekly_open = Stock::Call.weekly_open(symbol)
+    monthly_open = Stock::Call.monthly_open(symbol)
     if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
-      stock = Stock.new(:symbol => symbol, :name => name)
+      stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :daily_open => daily_open, :weekly_open => weekly_open, :monthly_open => monthly_open, :volume => volume)
       stock.save
-      # add current price method to stock
-      # add region column to stock table
-      # add Quote Endpoint to find current price method
+
+    else
+      stock = Stock.find_by_name(name)
+      stock.update(:current_price => current_price, :daily_open => daily_open, :weekly_open => weekly_open, :monthly_open => monthly_open, :volume => volume)
     end
   end
-
-
 
 end
