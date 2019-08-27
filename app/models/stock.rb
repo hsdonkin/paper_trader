@@ -1,8 +1,8 @@
-require 'googlecharts'
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios
   has_many :trades
+
 
   def self.search(query)
     RestClient::Request.execute(
@@ -20,7 +20,7 @@ class Stock < ApplicationRecord
       stock.save
       # add current price method to stock
       # add region column to stock table
-      # add Quote Endpoint to find current price method 
+      # add Quote Endpoint to find current price method
     end
   end
 
