@@ -12,6 +12,6 @@ class PagesController < ApplicationController
     else
       @stock = Stock.populate_stock_table(params[:search])
     end
-    redirect_to stock_path(@stock)
+    redirect_to stock_url(@stock)
   end
 end
