@@ -1,3 +1,4 @@
+require 'byebug'
 module API
   class Call
 
@@ -14,6 +15,12 @@ module API
         url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=5min&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
     end
 
+    def self.daily_open(symbol)
+      call = RestClient::Request.execute(
+        method: :get,
+        url: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=#{symbol}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
+        JSON.parse(call)["Time Series (Daily)"].first[1]["1. open"]
+    end
 
 
 

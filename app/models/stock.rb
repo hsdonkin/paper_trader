@@ -16,12 +16,14 @@ class Stock < ApplicationRecord
     symbol = search["1. symbol"]
     name = search["2. name"]
     region = search["4. region"]
+    current_price = Stock::Call.current_price(symbol)
+    daily_open = Stock::Call.daily_open(symbol)
     if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
-      stock = Stock.new(:symbol => symbol, :name => name, :current_price => Stock::Call.current_price(symbol))
+      stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :daily_open => daily_open )
       stock.save
     else
       stock = Stock.find_by_name(name)
-      stock.update(:current_price => Stock::Call.current_price(symbol))
+      stock.update(:current_price => current_price, :daily_open => daily_open)
       # add current price method to stock
       # add region column to stock table
       # add else statement to update stock data
