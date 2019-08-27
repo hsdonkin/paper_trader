@@ -59,10 +59,16 @@ gray = #292E1E */
 }
 
 .triangle-gain{
+  display: inline;
+  margin: 0;
+  padding: 0;
   margin-left: 0.3rem;
   color: #4DFFAB;
 }
-.triangle-loss{
+.triangle-loss {
+  display: inline;
+  margin: 0;
+  padding: 0;
   margin-left: 0.3rem;
   color: #FF7A4D;
 }

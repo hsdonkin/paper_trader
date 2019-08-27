@@ -1,9 +1,9 @@
 <% if @stocks.any? %>
-<ul>
   <% @stocks.each do |stock| %>
-    <li><%= link_to stock.symbol, stock_path(stock) %></li>
+    <div class="stock-display">
+
+    </div>
   <% end %>
 <% else %>
-  <li>We don't have any stocks yet.</li>
+  <h2>Sorry, something went wrong...</h2>
 <% end %>
-</ul>

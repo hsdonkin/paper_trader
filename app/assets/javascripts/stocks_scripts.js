@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+// weird solution to check if something exists
+if ($('.chart-holder').length){
+
   // this gets the stock object from the data hidden in the div
   const stock = $('.stock-data').data('stock-object');
   console.log(stock);
@@ -42,6 +45,7 @@ $(document).ready(function(){
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
     Chart.defaults.global.animation.duration = 500;
+    Chart.defaults.global.hover.animationDuration = 0;
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -69,8 +73,11 @@ $(document).ready(function(){
             line: {
               backgroundColor: false,
               fill: false
+            },
+          tooltips: {
+            // callback for the tooltip data would go here, but can't figure it out yet
+          }
 
-            }
           },
           scales: {
             yAxes: [{
@@ -78,13 +85,10 @@ $(document).ready(function(){
                      // Include a dollar sign in the ticks
                      callback: function(value, index, values) {
                          return '$' + value;
-
                      },
                      // this determines the min max of Y axis
                      suggestedMin: (valueMin - valueMin*0.005),
                      suggestedMax: (valueMax + valueMax*0.005)
-
-
                  },
                  gridLines:{
                    display: true,
@@ -106,5 +110,7 @@ $(document).ready(function(){
     });
 
 
+
+}
 
   });

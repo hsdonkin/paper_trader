@@ -1,7 +1,11 @@
+
+
 <% if @stock.gain == true %>
   <% gain_or_loss = "triangle-gain"%>
+  <% triangle = "\u25B2"%>
 <% else %>
   <% gain_or_loss = "triangle-loss" %>
+  <% triangle = "\u25BC"%>
 <% end %>
 
 
@@ -14,7 +18,7 @@
     </div>
     <div class="stock-header-right">
 
-      <h3>Current Price: $<%= @stock.current_price %><span class="<%= gain_or_loss %>">&#9652</span></h3>
+      <h3>Current Price: $<%= @stock.current_price %><div class="<%= gain_or_loss %>"><%= triangle.force_encoding('utf-8') %></div></h3>
       <h3>|</h3>
       <h3>Volume: <%= @stock.volume %></h3>
     </div>
