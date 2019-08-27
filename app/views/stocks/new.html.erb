@@ -1,0 +1,19 @@
+<h2>Create A Stock</h2>
+
+<%= form_for @stock do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol, autofocus: true, autocomplete: "symbol" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Stock" %>
+  </div>
+
+<% end %>

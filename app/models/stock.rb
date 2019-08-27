@@ -23,4 +23,5 @@ class Stock < ApplicationRecord
     end
   end
 
+
 end
