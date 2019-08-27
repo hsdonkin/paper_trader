@@ -1,7 +1,16 @@
 <% if @stocks.any? %>
   <% @stocks.each do |stock| %>
-    <div class="stock-display">
-
+  <% if stock.gain == true %>
+    <% gain_or_loss = "triangle-gain"%>
+    <% triangle = "\u25B2"%>
+  <% else %>
+    <% gain_or_loss = "triangle-loss" %>
+    <% triangle = "\u25BC"%>
+  <% end %>
+    <div class="sm-stock-display">
+      <span class="symbol"><%= link_to stock.symbol, stock_path(stock) %></span>
+      <span class="chart"> <canvas class="sm-stock-chart" id="sm-stock-chart-<%= stock.id %>"></canvas></span>
+      <span class="price">$<%= stock.current_price %><span class="<%=gain_or_loss%>"><%= triangle -%></span></span>
     </div>
   <% end %>
 <% else %>

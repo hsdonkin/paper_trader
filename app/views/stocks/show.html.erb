@@ -1,4 +1,5 @@
-
+<div class="stock-data" data-stock-object="<%= @stock.to_json %>"></div>
+<div class="stock-values" data-stock-values="<%= @values.to_json %>"><div>
 
 <% if @stock.gain == true %>
   <% gain_or_loss = "triangle-gain"%>
@@ -43,7 +44,3 @@
     </div>
   </div>
 </div>
-
-
-<div class="stock-data" data-stock-object="<%= @stock.to_json %>"></div>
-<div class="stock-values" data-stock-values="<%= @values.to_json %>"><div>

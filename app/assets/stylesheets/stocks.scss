@@ -58,6 +58,34 @@ gray = #292E1E */
   display: block;
 }
 
+.sm-stock-display{
+  border: 1px red solid;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.sm-stock-display canvas{
+  width: 120px;
+  height: 50px;
+}
+
+.sm-stock-display .symbol{
+  margin-top: 1.5rem;
+  float: left;
+}
+
+.sm-stock-display .price{
+  margin-top: 1.5rem;
+  float: right;
+}
+
+.sm-stock-display .chart{
+  height: 100%;
+}
+
+
+
 .triangle-gain{
   display: inline;
   margin: 0;
