@@ -2,6 +2,13 @@ require 'byebug'
 module API
   class Call
 
+    def self.current_volume(symbol)
+      call = RestClient::Request.execute(
+        method: :get,
+        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=5min&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
+        JSON.parse(call)["Time Series (5min)"].first[1]["5. volume"]
+    end
+
     def self.current_price(symbol)
       call = RestClient::Request.execute(
         method: :get,

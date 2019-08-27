@@ -7,10 +7,9 @@ class PagesController < ApplicationController
     if params[:search].blank?
       redirect_to(root_path, alert: "Empty field!") and return
     else
-      @parameter = params[:search].downcase
-      @results = Stock.all.where("lower(name) LIKE :search", search: @parameter)
+      @stock = Stock.populate_stock_table(params[:search])
     end
 
-    render :search
+     render :search
   end
 end
