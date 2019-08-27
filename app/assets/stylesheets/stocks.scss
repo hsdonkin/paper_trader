@@ -1,3 +1,102 @@
 // Place all the styles related to the stocks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* yellow = #E8DB51 232 219 81 91
+blue = #726EF5 114 110 245 96
+green = #4DFFAB 77 255 171 100
+red = #FF7A4D 255 122 77 100
+purple = #A049F5 160 73 245 96
+gray = #292E1E */
+
+.chart-holder{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.chart-holder canvas{
+  display: block;
+  margin: auto;
+  padding: 0;
+}
+
+.stock-header h2,h3{
+  display: inline;
+}
+
+.stock-header-left{
+  display: inline;
+  float: left;
+}
+.stock-header-right{
+  display: inline;
+  float: right;
+}
+
+.stock-info-left{
+  width: 33%;
+  margin: 0;
+  float: left;
+  text-align: left;
+}
+.stock-info-mid{
+  width: 33%;
+  margin: 0;
+  float: left;
+  text-align: left;
+}
+.stock-info-right{
+  width: 33%;
+  margin: 0;
+  float: right;
+  text-align: left;
+}
+
+.stock-info h3{
+  margin-left: 5rem;
+  display: block;
+}
+
+.sm-stock-display{
+  border: 1px red solid;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.sm-stock-display canvas{
+  width: 120px;
+  height: 50px;
+}
+
+.sm-stock-display .symbol{
+  margin-top: 1.5rem;
+  float: left;
+}
+
+.sm-stock-display .price{
+  margin-top: 1.5rem;
+  float: right;
+}
+
+.sm-stock-display .chart{
+  height: 100%;
+}
+
+
+
+.triangle-gain{
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-left: 0.3rem;
+  color: #4DFFAB;
+}
+.triangle-loss {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-left: 0.3rem;
+  color: #FF7A4D;
+}

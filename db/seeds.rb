@@ -12,7 +12,7 @@ Stock.destroy_all
 10.times do
   stock = Stock.new(
     :symbol => Faker::Alphanumeric.unique.alpha(number:4).upcase,
-    :name => Faker::Commerce.price(range: 0..100.00),
+    :name => Faker::Company.name,
     :gain => true,
     :current_price => Faker::Commerce.price(range: 0..100.00),
     :daily_open => Faker::Commerce.price(range: 0..100.00),
