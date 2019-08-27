@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* yellow = #E8DB51 232 219 81 91
+blue = #726EF5 114 110 245 96
+green = #4DFFAB 77 255 171 100
+red = #FF7A4D 255 122 77 100
+purple = #A049F5 160 73 245 96
+gray = #292E1E */
+
+body {
+  font-family: 'Merriweather', serif;
+  color: white;
+  background-color: #2D2D2D;
+}
+
+.main-content{
+  width: 80%;
+  margin: auto;
+}
+
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+/* mouse over link */
+a:hover {
+  color: #4DFFAB;
+  text-decoration: none;
+}
+/* selected link */
+a:active {
+  color: #4DFFAB;
+  text-decoration: none;
+}
+
+.navbar{
+height: 2rem;
+}
+.nav-left{
+  display: inline-block;
+  float: left;
+}
+.nav-right{
+  display: inline-block;
+  float:right;
+}

@@ -1,5 +1,4 @@
 require 'byebug'
-
 class StocksController < ApplicationController
 
   def index
@@ -35,4 +34,5 @@ class StocksController < ApplicationController
   def stock_params
     params.require(:stock).permit(:symbol, :name, :gain, :current_price, :daily_open, :daily_close, :weekly_open, :weekly_close, :monthly_close, :daily_high, :daily_low, :weekly_high, :weekly_low, :monthly_high, :monthly_low, :yearly_high, :yearly_low, :volume)
   end
+
 end

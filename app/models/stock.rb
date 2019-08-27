@@ -1,3 +1,4 @@
+require 'googlecharts'
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios
@@ -22,6 +23,7 @@ class Stock < ApplicationRecord
       # add Quote Endpoint to find current price method 
     end
   end
+
 
 
 end

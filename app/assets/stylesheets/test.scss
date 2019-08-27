@@ -1,0 +1,16 @@
+// Place all the styles related to the test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chart-holder{
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.chart-holder canvas{
+  display: block;
+  margin: auto;
+  padding: 0;
+}
