@@ -15,11 +15,13 @@ if ($('.chart-holder').length){
   const values_array = [];
   const log_time_array = [];
   values.forEach(function(value){
-      values_array.push(parseInt(value.price));
+      values_array.push(parseFloat(value.price));
       // formats the log time into a pretty format
-      log_time = new Date(value.log_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      log_time =  new Date(value.log_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
       log_time_array.push(log_time);
     });
+
+
 
     // sort the values array and return the min max value
     values_sort = values_array.slice(0);
@@ -27,6 +29,8 @@ if ($('.chart-holder').length){
     // max value is the last item of this array
     valueMax = values_sort[values_sort.length-1];
     console.log(valueMax);
+
+
 
     // define border color based on gain or loss
     let borderColor = "";
