@@ -17,11 +17,13 @@ class Stock < ApplicationRecord
     name = search["2. name"]
     region = search["4. region"]
     if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
-      stock = Stock.new(:symbol => symbol, :name => name)
+      stock = Stock.new(:symbol => symbol, :name => name, :current_price => Stock::Call.current_price(symbol))
       stock.save
+    else
+      stock = Stock.find_by_name(name)
+      stock.update(:current_price => Stock::Call.current_price(symbol))
       # add current price method to stock
       # add region column to stock table
-      # add Quote Endpoint to find current price method
       # add else statement to update stock data
 
     end
