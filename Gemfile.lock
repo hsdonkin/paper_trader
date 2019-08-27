@@ -238,9 +238,9 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   faker
   googlecharts
-  dotenv-rails
   iex-ruby-client
   jbuilder (~> 2.5)
   jquery-rails
