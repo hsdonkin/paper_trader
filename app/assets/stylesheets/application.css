@@ -55,13 +55,19 @@ a:active {
 }
 
 .navbar{
-height: 2rem;
+  height: 3rem;
 }
 .nav-left{
-  display: inline-block;
+  height: 100%;
+  display: inline;
   float: left;
 }
 .nav-right{
-  display: inline-block;
+  height: 100%;
+  display: inline;
   float:right;
+}
+.nav-right a{
+  position: relative;
+  bottom: 0px;
 }

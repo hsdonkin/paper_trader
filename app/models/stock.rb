@@ -1,4 +1,6 @@
+
 require 'byebug'
+
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios
@@ -25,6 +27,7 @@ class Stock < ApplicationRecord
     if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
       stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :daily_open => daily_open, :weekly_open => weekly_open, :monthly_open => monthly_open, :volume => volume)
       stock.save
+
     else
       stock = Stock.find_by_name(name)
       stock.update(:current_price => current_price, :daily_open => daily_open, :weekly_open => weekly_open, :monthly_open => monthly_open, :volume => volume)
