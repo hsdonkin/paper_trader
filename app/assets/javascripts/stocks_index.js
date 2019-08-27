@@ -22,14 +22,13 @@ if ($('.sm-stock-chart').length) {
         title: {
           display: true,
           text: 'World population per region (in millions)'
-        }
-
-                  // bezierCurve:false, //remove curves from your plot
-                  // scaleShowLabels : false, //remove labels
-                  // tooltipEvents:[], //remove trigger from tooltips so they will'nt be show
-                  // pointDot : false, //remove the points markers
-                  // scaleShowGridLines: true //set to false to remove the grids background
-
+        },
+          bezierCurve: false, //remove curves from your plot
+          scaleShowLabels : false, //remove labels
+          tooltipEvents:[], //remove trigger from tooltips so they will'nt be show
+          pointDot : false, //remove the points markers
+          scaleShowGridLines: true //set to false to remove the grids background
+        
       }
     });
 

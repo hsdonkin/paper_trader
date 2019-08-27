@@ -11,17 +11,20 @@ if ($('.chart-holder').length){
 
   // make an array of all the values for the chart data
   // this gets the values from the data hidden in the div
-  const values = $('.stock-values').data('stock-values');
+  const values_times = Array.from($('.stock-values-times').data('stock-values-times'));
+  const values_object = $('.stock-values-object').data('stock-values-object');
+  debugger
   const values_array = [];
   const log_time_array = [];
-  values.forEach(function(value){
+
+  values_object.forEach(function(value){
       values_array.push(parseFloat(value.price));
-      // formats the log time into a pretty format
-      log_time =  new Date(value.log_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-      log_time_array.push(log_time);
     });
-
-
+  values_times.forEach(function(time){
+    log_time_array.push(time);
+  });
+  values_array.reverse();
+  log_time_array.reverse();
 
     // sort the values array and return the min max value
     values_sort = values_array.slice(0);

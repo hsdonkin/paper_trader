@@ -1,9 +1,11 @@
 <div class="stock-data" data-stock-object="<%= @stock.to_json %>"></div>
 <%# Something is going horribly wrong with the time from the API -> DB -> Javascript %>
+<% values_times = [] %>
 <% @values.each do |v| %>
-  <% v.log_time = v.log_time.to_time.iso8601 %>
+  <% values_times.push(v.log_time.to_s) %>
 <% end %>
-<div class="stock-values" data-stock-values="<%= @values.to_json %>"><div>
+<div class="stock-values-times" data-stock-values-times="<%= values_times.to_json %>"><div>
+<div class="stock-values-object" data-stock-values-object="<%= @values.to_json %>"><div>
 
 
 <% if @stock.gain == true %>
