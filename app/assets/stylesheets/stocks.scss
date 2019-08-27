@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* yellow = #E8DB51 232 219 81 91
+blue = #726EF5 114 110 245 96
+green = #4DFFAB 77 255 171 100
+red = #FF7A4D 255 122 77 100
+purple = #A049F5 160 73 245 96
+gray = #292E1E */
+
 .chart-holder{
   width: 100%;
   margin: auto;
@@ -47,7 +54,7 @@
 }
 
 .stock-info h3{
-  margin-left: 2rem;
+  margin-left: 5rem;
   display: block;
 }
 
