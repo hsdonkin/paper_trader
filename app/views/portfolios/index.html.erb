@@ -4,10 +4,10 @@
 
 <h2>Current Holdings</h2>
 <% @stocks.each do |f| %>
-  <span><%= f %><br></span>
+  <span><%= "#{f[:symbol]} | Quantity: #{f[:quantity]} | Equity: $#{f[:equity]}" %><br></span>
 <% end %>
 
 <h2>Trade History</h2>
 <% @trades.each do |f| %>
-  <span><%= f %><br></span>
+  <span><%= "#{f[:date]} | #{f[:symbol]} | Quantity: #{f[:quantity]} | Price/share: $#{f[:price]}" %><br></span>
 <% end %>
