@@ -2,7 +2,8 @@ require 'byebug'
 module API
   class Call
 
-    @@api_counter = 0
+  @@api_counter = 0
+
    def self.apikey_toggle
      api_arr = [ENV['ALPHA_VANTAGE_API_KEY1'], ENV['ALPHA_VANTAGE_API_KEY2'], ENV['ALPHA_VANTAGE_API_KEY3'], ENV['ALPHA_VANTAGE_API_KEY4'], ENV['ALPHA_VANTAGE_API_KEY5'],
      ENV['ALPHA_VANTAGE_API_KEY6'], ENV['ALPHA_VANTAGE_API_KEY7'],
@@ -43,6 +44,17 @@ module API
       call = RestClient::Request.execute(
         method: :get,
         url: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=#{symbol}&apikey=#{self.apikey_toggle}")
+        counter = 0
+        while JSON.parse(call)["Time Series (Daily)"] == nil
+          sleep(2)
+          call = RestClient::Request.execute(
+            method: :get,
+            url: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=#{symbol}&apikey=#{self.apikey_toggle}")
+            counter += 1
+            if counter == 5
+              break
+            end
+        end
         JSON.parse(call)["Time Series (Daily)"].first[1]["1. open"]
     end
 
