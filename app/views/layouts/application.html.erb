@@ -17,10 +17,11 @@
       <div class="nav-left">
         <%= link_to "Paper_Trader"%>
       </div>
-      <%= form_tag(search_path, :method => "get", :class=>"nav-search") do %>
-          <%= search_field_tag :search, params[:search], placeholder: "Search name or symbol"%>
-      <% end %>
       <div class="nav-right">
+        <%= form_tag(search_path, :method => "get", :class=>"nav-search") do %>
+        <span><%= "\u25B6 " %></span>
+        <%= search_field_tag :search, params[:search], placeholder: "Search name or symbol", autocomplete: "off"%>
+        <% end %>
 
         <%=  link_to "Stocks", stocks_path %> |
         <% if current_user %>

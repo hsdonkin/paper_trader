@@ -64,12 +64,17 @@ gray = #292E1E */
 
 .sm-stock-display{
   border: 1px red solid;
+  height: 5rem;
   width: 30%;
   margin: auto;
   text-align: center;
 }
 
 .sm-stock-display canvas{
+  margin: auto;
+  border: 1px solid red;
+  height: 3rem;
+  width: 5rem;
 }
 
 .sm-stock-display .symbol{
@@ -80,6 +85,10 @@ gray = #292E1E */
 .sm-stock-display .price{
   margin-top: 1.5rem;
   float: right;
+}
+
+.sm-stock-display .trade{
+  margin-top: 1.5rem;
 }
 
 .stock-buy-sell{

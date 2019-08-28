@@ -20,6 +20,7 @@ if ($('.chart-holder').length){
       values_array.push(parseFloat(value.price));
     });
   values_times.forEach(function(time){
+    time = time.replace("UTC", "");
     log_time_array.push(time);
   });
   values_array.reverse();

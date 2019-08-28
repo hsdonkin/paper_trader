@@ -63,6 +63,7 @@ a:active {
   float: left;
 }
 .nav-right{
+
   height: 100%;
   display: inline;
   float:right;
@@ -73,7 +74,22 @@ a:active {
 }
 
 .nav-search{
-  float: right;
-  height: 100%;
-  width:
+  float: left;
+  display: flex;
+}
+.nav-search input{
+  all: unset;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  display: inline;
+
+}
+
+.nav-search input:focus{
+  /* all: unset; */
+  float: left;
+}
+
+.nav-search span{
+  color: gray;
 }
