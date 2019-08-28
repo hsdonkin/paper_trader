@@ -12,6 +12,7 @@ class StocksController < ApplicationController
     if @portfolio != []
       @equity = @portfolio[0]["shares"] * @stock.current_price
     end
+
     # Value.populate_value_table(@stock.symbol)
     @values = @stock.values
     render :show

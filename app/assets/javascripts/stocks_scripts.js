@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load',function(){
 
 // weird solution to check if something exists
 if ($('.chart-holder').length){
@@ -20,6 +20,7 @@ if ($('.chart-holder').length){
       values_array.push(parseFloat(value.price));
     });
   values_times.forEach(function(time){
+    time = time.replace("UTC", "");
     log_time_array.push(time);
   });
   values_array.reverse();
@@ -48,7 +49,7 @@ if ($('.chart-holder').length){
     var ctx = document.getElementById('stock-chart').getContext('2d');
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
-    Chart.defaults.global.animation.duration = 500;
+    Chart.defaults.global.animation.duration = 1000;
     Chart.defaults.global.hover.animationDuration = 0;
     var chart = new Chart(ctx, {
         // The type of chart we want to create

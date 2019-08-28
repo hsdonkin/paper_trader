@@ -14,5 +14,6 @@ class TradesController < ApplicationController
       redirect_to stock_path(stock)
     end
     puts "right here boss"
+
   end
 end
