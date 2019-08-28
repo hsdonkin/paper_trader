@@ -14,6 +14,8 @@ class Stock < ApplicationRecord
       url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
   end
 
+  
+
   def self.populate_stock_table(query)
     search = JSON.parse(Stock.search(query))["bestMatches"].first
     symbol = search["1. symbol"]
