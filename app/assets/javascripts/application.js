@@ -15,3 +15,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+// javascript search bar
+
+$(document).ready(function(){
+  $('.nav-search').submit(function(){
+    $('.nav-search').off();
+  })
+})

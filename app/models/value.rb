@@ -4,6 +4,7 @@ class Value < ApplicationRecord
 
   def self.populate_value_table(symbol)
     stock = Stock.find_by_symbol(symbol)
+
     if Value.find_by_stock_id(stock.id) != nil
        Value.where(stock_id: stock.id).destroy_all
     end
@@ -12,6 +13,8 @@ class Value < ApplicationRecord
         value = Value.new(:price => t[1]["4. close"], :log_time => t[0], :stock_id => stock.id)
         value.save!()
       end
+
+
     end
   end
 
