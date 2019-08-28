@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def search
     if params[:search].blank?
-      redirect_to(search_path, alert: "Empty field!") and return
+      redirect_to(search_path) and return
     else
       @stock = Stock.search(params[:search])
     end
