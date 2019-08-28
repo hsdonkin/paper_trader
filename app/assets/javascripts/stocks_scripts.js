@@ -114,8 +114,23 @@ if ($('.chart-holder').length){
         }
     });
 
+  }
 
-
-}
-
+  // logic for Trade button show hide
+  $('.trade-btn').click(function(){
+    $('.trade-btn').hide();
+      $('.buy-btn').fadeIn(200);
+      $('.sell-btn').fadeIn(200);
   });
+
+  $('.buy-btn').click(function(){
+    $('.sell-btn').fadeOut();
+    $('.buy-form').fadeIn();
+  });
+
+  $('.sell-btn').click(function(){
+    $('.buy-btn').fadeOut();
+    $('.sell-form').fadeIn();
+  });
+
+});
