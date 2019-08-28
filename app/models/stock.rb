@@ -9,23 +9,22 @@ class Stock < ApplicationRecord
   include API
 
   def self.search(query)
-  RestClient::Request.execute(
-      method: :get,
-      url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
-  end
-
-
-  def self.populate_stock_table(query)
-    search = JSON.parse(Stock.search(query))["bestMatches"].first
-    symbol = search["1. symbol"]
-    if Stock.find_by_symbol(symbol) == nil
-      Stock.populate_new_stock(symbol)
+    search_tables = Stock.where("symbol || name  ILIKE ?", "%#{query}%")
+    if search_tables.length == 0
+      a = RestClient::Request.execute(
+          method: :get,
+          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
+        search = JSON.parse(a)["bestMatches"].first
+        symbol = search["1. symbol"]
+        name = search["2. name"]
+        Stock.populate_new_stock(symbol, name)
     else
+      symbol = search_tables[0].symbol
       Stock.update_stock(symbol)
     end
   end
 
-  def self.populate_new_stock(symbol)
+  def self.populate_new_stock(symbol, name)
     volume = Stock::Call.current_volume(symbol)
     current_price = Stock::Call.current_price(symbol)
     daily_open = Stock::Call.daily_open(symbol)
@@ -35,7 +34,8 @@ class Stock < ApplicationRecord
   end
 
   def self.update_stock(symbol)
-    stock = Stock.find_by_name(symbol)
+    stock = Stock.find_by_symbol(symbol)
+
     if stock.updated_at < Time.now.utc - 300
       volume = Stock::Call.current_volume(symbol)
       current_price = Stock::Call.current_price(symbol)

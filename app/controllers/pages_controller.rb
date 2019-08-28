@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     if params[:search].blank?
       redirect_to(search_path, alert: "Empty field!") and return
     else
-      @stock = Stock.populate_stock_table(params[:search])
+      @stock = Stock.search(params[:search])
     end
       redirect_to stock_url(@stock)
   end

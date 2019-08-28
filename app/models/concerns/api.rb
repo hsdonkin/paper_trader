@@ -35,7 +35,7 @@ module API
     def self.daily(symbol)
       RestClient::Request.execute(
         method: :get,
-        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=5min&outputsize=compact&apikey=#{self.apikey_toggle}")
+        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=15min&outputsize=compact&apikey=#{self.apikey_toggle}")
     end
 
     def self.daily_open(symbol)
