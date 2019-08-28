@@ -53,6 +53,10 @@ gray = #292E1E */
   text-align: left;
 }
 
+.stock-info {
+  display: block;
+}
+
 .stock-info h3{
   margin-left: 5rem;
   display: block;
@@ -78,9 +82,29 @@ gray = #292E1E */
   float: right;
 }
 
+.stock-buy-sell{
+  margin-bottom: 1rem;
+}
 
+.stock-holding-left{
+  display: inline;
+  float: left;
+  width: 50%;
+  margin: 0;
+  text-align: center;
+}
 
+.stock-holding-right{
+  display: inline;
+  float: right;
+  width: 50%;
+  margin: 0;
+  text-align: center;
+}
 
+.stock-holding-right h3, .stock-holding-left h3{
+  display: block;
+}
 
 .triangle-gain{
   display: inline;
