@@ -8,13 +8,14 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find_by_id(params[:id])
-    Value.populate_value_table(@stock.symbol)
+    @portfolio = Portfolio.where({user_id: [current_user.id], stock_id: [params[:id]]})
+    @equity = @portfolio[0]["shares"] * @stock.current_price
+    # Value.populate_value_table(@stock.symbol)
     @values = @stock.values
     render :show
   end
 
   def new
-    # byebug
     @stock = Stock.new()
     render :new
   end
