@@ -11,8 +11,10 @@ class Stock < ApplicationRecord
   def self.search(query)
     RestClient::Request.execute(
       method: :get,
-      url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
+      url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
   end
+
+  
 
   def self.populate_stock_table(query)
     search = JSON.parse(Stock.search(query))["bestMatches"].first
@@ -21,18 +23,26 @@ class Stock < ApplicationRecord
     # region = search["4. region"]
     volume = Stock::Call.current_volume(symbol)
     current_price = Stock::Call.current_price(symbol)
-    # daily_open = Stock::Call.daily_open(symbol)
+    daily_open = Stock::Call.daily_open(symbol)
     # weekly_open = Stock::Call.weekly_open(symbol)
     # monthly_open = Stock::Call.monthly_open(symbol)
     if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
-      stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :volume => volume)
+      stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :daily_open => daily_open, :volume => volume)
       stock.save
-
     else
       stock = Stock.find_by_name(name)
-      stock.update(:current_price => current_price, :volume => volume)
+      stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
     end
     stock
+  end
+
+
+  def gain_check
+    if self.current_price < self.daily_open
+      self.update(:gain => false)
+    else
+      self.update(:gain => true)
+    end
   end
 
 end
