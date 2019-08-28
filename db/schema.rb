@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_184455) do
+
+ActiveRecord::Schema.define(version: 2019_08_28_214556) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "portfolios", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "stocks_id"
-    t.index ["stocks_id"], name: "index_portfolios_on_stocks_id"
-    t.index ["users_id"], name: "index_portfolios_on_users_id"
+    t.bigint "user_id"
+    t.bigint "stock_id"
+    t.integer "shares"
+    t.index ["stock_id"], name: "index_portfolios_on_stock_id"
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -84,8 +87,8 @@ ActiveRecord::Schema.define(version: 2019_08_28_184455) do
     t.index ["stock_id"], name: "index_values_on_stock_id"
   end
 
-  add_foreign_key "portfolios", "stocks", column: "stocks_id"
-  add_foreign_key "portfolios", "users", column: "users_id"
+  add_foreign_key "portfolios", "stocks"
+  add_foreign_key "portfolios", "users"
   add_foreign_key "trades", "stocks"
   add_foreign_key "trades", "users"
   add_foreign_key "values", "stocks"

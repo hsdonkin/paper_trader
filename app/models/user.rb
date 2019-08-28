@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :trades
 
   def stock_quantity(stock)
-    @user = current_user
     total_stock_owned = 0
     Trade.where({user_id: [@user.id], stock_id: [stock.id]}).each do |t|
       total_stock_owned += t.quantity
@@ -16,8 +15,23 @@ class User < ApplicationRecord
     total_stock_owned
   end
 
-  def buy_stock(stock, quantity)
-    @user = current_user
+  def portfolio_update(user)
+    @user = user
+    Trade.where({user_id: [@user.id]}).each do |t|
+      @shares = stock_quantity(t.stock)
+      portfolio = Portfolio.where({user_id: [@user.id], stock_id: [t.stock_id]})
+      if portfolio != []
+        portfolio.update(:shares => @shares)
+      else
+        portfolio = Portfolio.new(:user_id => @user.id, :stock_id => t.stock.id, :shares => @shares)
+        portfolio.save
+      end
+    end
+    Portfolio.where(:shares => 0).destroy_all
+  end
+
+  def buy_stock(user, stock, quantity)
+    @user = user
     @stock_hold = stock.current_price * quantity
 
     if @user.cash >= @stock_hold
@@ -30,8 +44,8 @@ class User < ApplicationRecord
     end
   end
 
-  def sell_stock(stock, quantity)
-    @user = current_user
+  def sell_stock(user, stock, quantity)
+    @user = user
     @stocks_owned = stock_quantity(stock)
 
     @current_trade_hold = stock.current_price * quantity

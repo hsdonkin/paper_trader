@@ -8,28 +8,36 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find_by_id(params[:id])
+
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check
+
+    if current_user
+      @portfolio = Portfolio.where({user_id: [current_user.id], stock_id: [params[:id]]})
+      if @portfolio != []
+        @equity = @portfolio[0]["shares"] * @stock.current_price
+      end
+    end
+
     @values = @stock.values
     render :show
   end
 
-  # def new
-  #   # byebug
-  #   @stock = Stock.new()
-  #   render :new
-  # end
-  #
-  # def create
-  #   @stock = Stock.new(stock_params)
-  #   @stock.current_price = @stock.get_current_price(@stock.symbol)
-  #   if @stock.save
-  #     flash[:notice] = "Stock added to database"
-  #     render :new
-  #   else
-  #     render :new
-  #   end
-  # end
+  def new
+    @stock = Stock.new()
+    render :new
+  end
+
+  def create
+    @stock = Stock.new(stock_params)
+    @stock.current_price = @stock.get_current_price(@stock.symbol)
+    if @stock.save
+      flash[:notice] = "Stock added to database"
+      render :new
+    else
+      render :new
+    end
+  end
 
   private
 

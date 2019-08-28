@@ -9,6 +9,7 @@ class Stock < ApplicationRecord
   include API
 
   def self.search(query)
+
     search_tables = Stock.where("symbol || name  ILIKE ?", "%#{query}%")
     if search_tables.length == 0
       a = RestClient::Request.execute(
@@ -41,6 +42,7 @@ class Stock < ApplicationRecord
       current_price = Stock::Call.current_price(symbol)
       daily_open = Stock::Call.daily_open(symbol)
       stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
+
     end
     stock
   end
