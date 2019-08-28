@@ -9,30 +9,50 @@ class Stock < ApplicationRecord
   include API
 
   def self.search(query)
-    RestClient::Request.execute(
-      method: :get,
-      url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
+
+    search_tables = Stock.where("symbol || name  ILIKE ?", "%#{query}%")
+    if search_tables.length == 0
+      a = RestClient::Request.execute(
+          method: :get,
+          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
+        search = JSON.parse(a)["bestMatches"].first
+        symbol = search["1. symbol"]
+        name = search["2. name"]
+        Stock.populate_new_stock(symbol, name)
+    else
+      symbol = search_tables[0].symbol
+      Stock.update_stock(symbol)
+    end
   end
 
-  def self.populate_stock_table(query)
-    search = JSON.parse(Stock.search(query))["bestMatches"].first
-    symbol = search["1. symbol"]
-    name = search["2. name"]
-    # region = search["4. region"]
+  def self.populate_new_stock(symbol, name)
     volume = Stock::Call.current_volume(symbol)
     current_price = Stock::Call.current_price(symbol)
-    # daily_open = Stock::Call.daily_open(symbol)
-    # weekly_open = Stock::Call.weekly_open(symbol)
-    # monthly_open = Stock::Call.monthly_open(symbol)
-    if Stock.find_by_symbol(symbol) == nil || Stock.find_by_name(name) == nil
-      stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :volume => volume)
-      stock.save
+    daily_open = Stock::Call.daily_open(symbol)
+    stock = Stock.new(:symbol => symbol, :name => name, :current_price => current_price, :daily_open => daily_open, :volume => volume)
+    stock.save
+    stock
+  end
 
-    else
-      stock = Stock.find_by_name(name)
-      stock.update(:current_price => current_price, :volume => volume)
+  def self.update_stock(symbol)
+    stock = Stock.find_by_symbol(symbol)
+
+    if stock.updated_at < Time.now.utc - 300
+      volume = Stock::Call.current_volume(symbol)
+      current_price = Stock::Call.current_price(symbol)
+      daily_open = Stock::Call.daily_open(symbol)
+      stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
+
     end
     stock
+  end
+
+  def gain_check
+    if self.current_price < self.daily_open
+      self.update(:gain => false)
+    else
+      self.update(:gain => true)
+    end
   end
 
 end

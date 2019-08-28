@@ -8,6 +8,10 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find_by_id(params[:id])
+
+    Value.populate_value_check(@stock.symbol)
+    @stock.gain_check
+
     if current_user
       @portfolio = Portfolio.where({user_id: [current_user.id], stock_id: [params[:id]]})
       if @portfolio != []
@@ -15,7 +19,6 @@ class StocksController < ApplicationController
       end
     end
 
-    # Value.populate_value_table(@stock.symbol)
     @values = @stock.values
     render :show
   end

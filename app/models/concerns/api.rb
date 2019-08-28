@@ -10,6 +10,7 @@ module API
     end
 
     def self.current_price(symbol)
+
       call = RestClient::Request.execute(
         method: :get,
         url: "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=#{symbol}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
@@ -19,7 +20,7 @@ module API
     def self.daily(symbol)
       RestClient::Request.execute(
         method: :get,
-        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=30min&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
+        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=15min&outputsize=compact&apikey=#{self.apikey_toggle}")
     end
 
     def self.daily_open(symbol)
