@@ -41,27 +41,29 @@
       <h3>Shares:</h3>
       <h3>50</h3>
     </div>
-    <div class="stock-holding-right">
+    <div class="stock-holding-left trade-holder">
+      <h3 class="trade">Trade</h3>
+      <%= form_with(url: stock_trades_path(@stock), method: "post", class: "hidden") do %>
+      <h3>Buy Shares</h3>
+      <%= label_tag "Quantity" %>
+      <%= number_field_tag :buy_qty %>
+      <%= submit_tag "Buy" %>
+      <% end %>
+      <%= form_with(url: stock_trades_path(@stock), method: "post", class:"hidden") do %>
+      <h3>Sell Shares</h3>
+      <%= label_tag "Quantity" %>
+      <%= number_field_tag :sell_qty %>
+      <%= submit_tag "Sell" %>
+      <% end %>
+    </div>
+    <div class="stock-holding-left">
       <h3>Current Equity Value:</h3>
       <h3>$1234</h3>
     </div>
   </div>
-  <div class="stock-buy-sell-form">
-    <h3>Buy Shares</h3>
-    <%= form_with(url: stock_trades_path(@stock), method: "post") do %>
-      <%= label_tag "Quantity" %>
-      <%= number_field_tag :buy_qty %>
-      <%= submit_tag "Buy" %>
-    <% end %>
-    <h3>Sell Shares</h3>
-    <%= form_with(url: stock_trades_path(@stock), method: "post") do %>
-      <%= label_tag "Quantity" %>
-      <%= number_field_tag :sell_qty %>
-      <%= submit_tag "Sell" %>
-    <% end %>
-  </div>
   </div>
 <% end %>
+<!---
   <div class="stock-info">
     <div class="stock-info-left">
       <h3>Daily Open: <span class="focus-in-expand">$<%= @stock.daily_open %></span></h3>
@@ -81,4 +83,4 @@
     </div>
   </div>
 
-</div>
+</div> -->

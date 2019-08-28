@@ -93,3 +93,7 @@ a:active {
 .nav-search span{
   color: gray;
 }
+
+.hidden {
+  display: none;
+}

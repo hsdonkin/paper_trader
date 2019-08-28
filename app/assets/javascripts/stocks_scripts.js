@@ -49,7 +49,7 @@ if ($('.chart-holder').length){
     var ctx = document.getElementById('stock-chart').getContext('2d');
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
-    Chart.defaults.global.animation.duration = 1000;
+
     Chart.defaults.global.hover.animationDuration = 0;
     var chart = new Chart(ctx, {
         // The type of chart we want to create
@@ -109,6 +109,11 @@ if ($('.chart-holder').length){
           },
           legend: {
             display :false
+          },
+          plugins:{
+            deferred:{
+              delay: 1500
+            }
           }
 
         }

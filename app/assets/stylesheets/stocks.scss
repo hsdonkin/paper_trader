@@ -113,13 +113,15 @@ gray = #292E1E */
 }
 
 .stock-buy-sell{
+  width: 33%;
+  display: inline;
   margin-bottom: 1rem;
 }
 
 .stock-holding-left{
   display: inline;
   float: left;
-  width: 50%;
+  width: 33%;
   margin: 0;
   text-align: center;
 }
@@ -149,4 +151,16 @@ gray = #292E1E */
   padding: 0;
   margin-left: 0.3rem;
   color: #FF7A4D;
+}
+
+.trade-holder{
+  text-align: center;
+}
+.trade {
+  text-align: center;
+  width: 4rem;
+  display: inline;
+  background-color: #726EF5;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
 }
