@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get "/test", to: "test#index"
   root to: 'pages#index'
   get '/search', to: 'pages#search'
-  resources :stocks
+  resources :stocks do
+   resources :trades
+ end
   get '/user/:id', to: 'users#show', as: 'user'
-  resources :trades
 end

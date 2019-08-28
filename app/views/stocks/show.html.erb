@@ -39,22 +39,22 @@
   <div class="stock-holdings">
     <div class="stock-holding-left">
       <h3>Shares:</h3>
-      <h3>50</h3>
+      <h3><%= @portfolio[0]["shares"] %></h3>
     </div>
     <div class="stock-holding-right">
       <h3>Current Equity Value:</h3>
-      <h3>$1234</h3>
+      <h3>$<%= @equity %></h3>
     </div>
   </div>
   <div class="stock-buy-sell-form">
     <h3>Buy Shares</h3>
-    <%= form_with(url: "/trades", method: "post") do %>
+    <%= form_with(url: stock_trades_path(@stock), method: :post) do %>
       <%= label_tag "Quantity" %>
       <%= number_field_tag :buy_qty %>
       <%= submit_tag "Buy" %>
     <% end %>
     <h3>Sell Shares</h3>
-    <%= form_with(url: "/trades", method: "post") do %>
+    <%= form_with(url: stock_trades_path(@stock), method: :post) do %>
       <%= label_tag "Quantity" %>
       <%= number_field_tag :sell_qty %>
       <%= submit_tag "Sell" %>
