@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   get '/search', to: 'pages#search'
   resources :stocks
-  resources :users
+  get '/user/:id', to: 'users#show', as: 'user'
   resources :trades
 end
