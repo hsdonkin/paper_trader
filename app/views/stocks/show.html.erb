@@ -5,7 +5,7 @@
   <% values_times.push(v.log_time.to_s) %>
 <% end %>
 <div class="stock-values-times" data-stock-values-times="<%= values_times.to_json %>"><div>
-<div class="stock-values-object" data-stock-values-object="<%= @values.to_json %>"><div>
+<div class="stock-values-object" data-stock-values-object="<%= @values.to_json %>"></div>
 
 
 <% if @stock.gain == true %>
@@ -32,6 +32,36 @@
     </div>
   </div>
   <canvas id="stock-chart"></canvas>
+</div>
+
+<% if current_user %>
+  <div class="stock-buy-sell">
+  <div class="stock-holdings">
+    <div class="stock-holding-left">
+      <h3>Shares:</h3>
+      <h3>50</h3>
+    </div>
+    <div class="stock-holding-right">
+      <h3>Current Equity Value:</h3>
+      <h3>$1234</h3>
+    </div>
+  </div>
+  <div class="stock-buy-sell-form">
+    <h3>Buy Shares</h3>
+    <%= form_with(url: "/trades", method: "post") do %>
+      <%= label_tag "Quantity" %>
+      <%= number_field_tag :buy_qty %>
+      <%= submit_tag "Buy" %>
+    <% end %>
+    <h3>Sell Shares</h3>
+    <%= form_with(url: "/trades", method: "post") do %>
+      <%= label_tag "Quantity" %>
+      <%= number_field_tag :sell_qty %>
+      <%= submit_tag "Sell" %>
+    <% end %>
+  </div>
+  </div>
+<% end %>
   <div class="stock-info">
     <div class="stock-info-left">
       <h3>Daily Open: <span class="focus-in-expand">$<%= @stock.daily_open %></span></h3>
@@ -50,4 +80,5 @@
       <h3>Yearly Low: $<%= @stock.yearly_low %></h3>
     </div>
   </div>
+
 </div>

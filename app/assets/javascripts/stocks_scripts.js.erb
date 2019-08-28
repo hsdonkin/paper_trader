@@ -5,7 +5,7 @@ if ($('.chart-holder').length){
 
   // this gets the stock object from the data hidden in the div
   const stock = $('.stock-data').data('stock-object');
-  console.log(stock);
+
 
 
 
@@ -13,7 +13,6 @@ if ($('.chart-holder').length){
   // this gets the values from the data hidden in the div
   const values_times = Array.from($('.stock-values-times').data('stock-values-times'));
   const values_object = $('.stock-values-object').data('stock-values-object');
-  debugger
   const values_array = [];
   const log_time_array = [];
 
@@ -31,7 +30,7 @@ if ($('.chart-holder').length){
     valueMin = values_sort.sort(function(a, b){return a-b})[0];
     // max value is the last item of this array
     valueMax = values_sort[values_sort.length-1];
-    console.log(valueMax);
+
 
 
 
@@ -43,8 +42,6 @@ if ($('.chart-holder').length){
        borderColor = 'rgb(255, 122, 77, 100)';
     }
 
-    console.log(values_array);
-    console.log(log_time_array);
 
     // below is the chart object
     // ctx is the canvas element
