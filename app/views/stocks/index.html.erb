@@ -1,4 +1,5 @@
 <% if @stocks.any? %>
+  <% list_counter = 0 %>
   <% @stocks.each do |stock| %>
   <% if stock.gain == true %>
     <% gain_or_loss = "triangle-gain"%>
@@ -9,7 +10,7 @@
   <% end %>
     <div class="sm-stock-display">
       <span class="symbol"><%= link_to stock.symbol, stock_path(stock) %></span>
-      <span class="price">$<%= stock.current_price %><span class="<%=gain_or_loss%>"><%= triangle -%></span></span>
+      <span class="price">$<%= stock.current_price.round(2) %><span class="<%=gain_or_loss%>"><%= triangle -%></span></span>
       <span class="trade"><%= link_to "Trade", stock_path(stock) %></span>
     </div>
   <% end %>
