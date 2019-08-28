@@ -39,7 +39,14 @@
   <div class="stock-holdings">
     <div class="stock-holding-left">
       <h3>Shares:</h3>
-      <h3><%= @portfolio[0]["shares"] %></h3>
+
+      <h3>
+        <% if @portfolio.any? %>
+          <%= @portfolio[0]["shares"] %>
+          <% else %>
+          0
+          <% end %>
+      </h3>
     </div>
     <div class="stock-holding-right">
       <h3>Current Equity Value:</h3>

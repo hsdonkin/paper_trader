@@ -19,14 +19,15 @@ class User < ApplicationRecord
     @user = user
     Trade.where({user_id: [@user.id]}).each do |t|
       @shares = stock_quantity(t.stock)
-      if Portfolio.where({user_id: [@user.id], stock_id: [t.stock_id]}) != []
-        port = Portfolio.where({user_id: [@user.id], stock_id: [t.stock_id]})
-        port.update(:shares => @shares)
+      portfolio = Portfolio.where({user_id: [@user.id], stock_id: [t.stock_id]})
+      if portfolio != []
+        portfolio.update(:shares => @shares)
       else
-        port = Portfolio.new(:user_id => @user.id, :stock_id => t.stock.id, :shares => @shares)
-        port.save
+        portfolio = Portfolio.new(:user_id => @user.id, :stock_id => t.stock.id, :shares => @shares)
+        portfolio.save
       end
     end
+    Portfolio.where(:shares => 0).destroy_all
   end
 
   def buy_stock(user, stock, quantity)
