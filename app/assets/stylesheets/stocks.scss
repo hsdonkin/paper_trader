@@ -63,23 +63,53 @@ gray = #292E1E */
 }
 
 .sm-stock-display{
-  border: 1px red solid;
+  border: 1px gray solid;
+  border-radius: 5px;
+  height: 2rem;
   width: 30%;
   margin: auto;
   text-align: center;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
 }
 
 .sm-stock-display canvas{
+  margin: auto;
+  border: 1px solid red;
+  height: 3rem;
+  width: 5rem;
 }
 
 .sm-stock-display .symbol{
-  margin-top: 1.5rem;
+  width: 33%;
+  margin: 0;
   float: left;
 }
 
 .sm-stock-display .price{
-  margin-top: 1.5rem;
+  width: 33%;
+  margin: 0;
   float: right;
+  margin-right: 0.6rem;
+}
+
+.sm-stock-display .trade{
+  width: 33%;
+  margin: 0;
+  background-color: #A049F5;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.sm-stock-display .trade:hover{
+  background-color: darken(#A049F5, 10%);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sm-stock-display .trade a:hover{
+  color: white;
 }
 
 .stock-buy-sell{

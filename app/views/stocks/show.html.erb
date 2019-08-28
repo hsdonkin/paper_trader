@@ -17,7 +17,7 @@
 <% end %>
 
 
-<div class="chart-holder">
+<div id="chart-holder" class="chart-holder">
   <div class="stock-header">
     <div class="stock-header-left">
       <h3><%= @stock.symbol %></h3>
@@ -48,13 +48,13 @@
   </div>
   <div class="stock-buy-sell-form">
     <h3>Buy Shares</h3>
-    <%= form_with(url: "/trades", method: "post") do %>
+    <%= form_with(url: stock_trades_path(@stock), method: "post") do %>
       <%= label_tag "Quantity" %>
       <%= number_field_tag :buy_qty %>
       <%= submit_tag "Buy" %>
     <% end %>
     <h3>Sell Shares</h3>
-    <%= form_with(url: "/trades", method: "post") do %>
+    <%= form_with(url: stock_trades_path(@stock), method: "post") do %>
       <%= label_tag "Quantity" %>
       <%= number_field_tag :sell_qty %>
       <%= submit_tag "Sell" %>
