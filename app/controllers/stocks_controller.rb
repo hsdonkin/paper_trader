@@ -9,6 +9,7 @@ class StocksController < ApplicationController
   def show
     @stock = Stock.find_by_id(params[:id])
     Value.populate_value_table(@stock.symbol)
+    @stock.gain_check
     @values = @stock.values
     render :show
   end
