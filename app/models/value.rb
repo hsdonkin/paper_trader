@@ -7,6 +7,7 @@ class Value < ApplicationRecord
       if t[0].split[0].to_time > Date.today
         value = Value.new(:price => t[1]["4. close"], :log_time => t[0], :stock_id => stock.id)
         value.save!()
+        p value 
       end
     end
   end
