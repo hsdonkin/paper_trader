@@ -1,6 +1,3 @@
-
-require 'byebug'
-
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios

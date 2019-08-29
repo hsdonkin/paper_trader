@@ -1,4 +1,3 @@
-require 'byebug'
 class StocksController < ApplicationController
 
   def index

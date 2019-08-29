@@ -1,5 +1,3 @@
-require 'byebug'
-
 class PagesController < ApplicationController
 
   def index

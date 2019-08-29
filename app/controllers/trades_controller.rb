@@ -1,4 +1,3 @@
-require 'byebug'
 class TradesController < ApplicationController
   def create
     stock = Stock.find_by_id(params[:stock_id].to_i)
