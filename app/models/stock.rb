@@ -16,7 +16,12 @@ class Stock < ApplicationRecord
           method: :get,
           url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
         search = JSON.parse(a)["bestMatches"].first
-        symbol = search["1. symbol"]
+
+        begin
+          symbol = search["1. symbol"]
+        rescue NoMethodError
+          raise NoStockError
+        end
         name = search["2. name"]
         Stock.populate_new_stock(symbol, name)
     else

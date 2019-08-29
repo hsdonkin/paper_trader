@@ -9,5 +9,5 @@ Rails.application.routes.draw do
    resources :trades
  end
   get '/user/:id', to: 'users#show', as: 'user'
-
+  get '*path', to: 'pages#index'
 end

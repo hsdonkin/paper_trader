@@ -7,7 +7,11 @@ class StocksController < ApplicationController
   end
 
   def show
-    @stock = Stock.find_by_id(params[:id])
+    if Stock.find_by_id(params[:id])
+      @stock = Stock.find_by_id(params[:id])
+    else
+      raise ActiveRecord::RecordNotFound
+    end
 
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check

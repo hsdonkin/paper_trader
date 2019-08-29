@@ -8,4 +8,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to '/stocks'
+  end
+
+  rescue_from NoStockError do
+    flash[:error] = {:msg=>"Sorry! Stock not found.", :class=>"bad-flash"}
+    redirect_to '/stocks'
+  end
+
+  rescue_from ApiError do
+    flash[:error] = {:msg=>"Sorry! There was a network error.", :class=>"bad-flash"}
+    redirect_to '/stocks'
+  end
+
 end
