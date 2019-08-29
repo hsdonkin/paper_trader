@@ -22,6 +22,7 @@
 $(document).ready(function(){
   $('.nav-search').submit(function(){
     $('.nav-search').off();
-  })
-})
+  });
+});
+//= require Chart.min
 //= require_tree .
