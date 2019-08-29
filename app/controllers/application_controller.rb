@@ -12,5 +12,10 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound do
     redirect_to '/stocks'
   end
-  
+
+  rescue_from NoStockError do
+    flash[:error] = {:msg=>"Sorry! Stock not found.", :class=>"bad-flash"}
+    redirect_to '/stocks'
+  end
+
 end

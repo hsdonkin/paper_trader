@@ -13,7 +13,6 @@ class StocksController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
-
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check
 
