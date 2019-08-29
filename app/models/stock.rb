@@ -33,14 +33,10 @@ class Stock < ApplicationRecord
 
   def self.update_stock(symbol)
     stock = Stock.find_by_symbol(symbol)
-
-    if stock.updated_at < Time.now.utc - 300
-      volume = Stock::Call.current_volume(symbol)
-      current_price = Stock::Call.current_price(symbol)
-      daily_open = Stock::Call.daily_open(symbol)
-      stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
-
-    end
+    volume = Stock::Call.current_volume(symbol)
+    current_price = Stock::Call.current_price(symbol)
+    daily_open = Stock::Call.daily_open(symbol)
+    stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
     stock
   end
 
