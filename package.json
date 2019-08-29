@@ -2,4 +2,8 @@
   "name": "paper_trader",
   "private": true,
   "dependencies": {}
+
+  "engines": {
+  "yarn": ">= 0.25.2"
+  }
 }
