@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/stocks'
   end
 
+  rescue_from ApiError do
+    flash[:error] = {:msg=>"Sorry! There was a network error.", :class=>"bad-flash"}
+    redirect_to '/stocks'
+  end
+
 end
