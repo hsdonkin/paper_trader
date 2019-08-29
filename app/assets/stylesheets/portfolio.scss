@@ -54,3 +54,23 @@
   display: flex;
   justify-content: center;
 }
+
+.portfolio-leaderboard{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.buy-stocks-prompt{
+  text-align: center;
+}
+
+.buy-stocks-prompt a{
+  background-color: #726EF5;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.buy-stocks-prompt a:hover{
+  color: white;
+  background-color: darken(#726EF5, 10%);
+}
