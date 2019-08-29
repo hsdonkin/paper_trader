@@ -18,8 +18,7 @@ _MVP Goals_
 * Leaderboards showing increases and decreases in portfolio (edited)
 
 ## Setup/Installation Requirements
- _For demonstration only,
- locate this address (http://floating-scrubland-71604.herokuapp.com/) on your browser._
+ _For demonstration only, locate this address (http://floating-scrubland-71604.herokuapp.com/) on your browser._
 &nbsp;
  _For local deployment : _
 * _Clone this repository_
