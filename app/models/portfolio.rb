@@ -31,7 +31,7 @@ class Portfolio < ApplicationRecord
 
   def self.total_equity(user)
     sum = 0
-    if user
+    if user 
       @portfolio = Portfolio.where({user_id: [user.id]})
       @portfolio.each do |p|
         @stock = Stock.find_by_id(p["stock_id"])

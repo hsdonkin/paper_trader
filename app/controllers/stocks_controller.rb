@@ -9,6 +9,7 @@ class StocksController < ApplicationController
     @stock = Stock.find_by_id(params[:id])
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check
+    Stock.update_stock(@stock.symbol)
 
     if current_user
       @portfolio = Portfolio.where({user_id: [current_user.id], stock_id: [params[:id]]})

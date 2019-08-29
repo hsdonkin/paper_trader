@@ -26,7 +26,6 @@ module API
     end
 
     def self.current_price(symbol)
-
       call = RestClient::Request.execute(
         method: :get,
         url: "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=#{symbol}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
