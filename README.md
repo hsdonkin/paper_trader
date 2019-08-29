@@ -10,30 +10,17 @@ _This app tracks real stocks in real-time and allows users to buy and sell stock
 
 _MVP Goals
 - View the price of a stock over time
-![Image description](link-to-image)
 - View prices of many stocks over time
-![Image description](link-to-image)
 - View a graph indicating the relative stock price
-![Image description](link-to-image)
 - Track a portfolio of many stocks over time
-![Image description](link-to-image)
 - "Buy" and "Sell" stocks of your portfolio
-![Image description](link-to-image)
 - Indicate relevant stats about your portfolio
-![Image description](link-to-image)
-
-_Stretch Goals
-- Implement portfolio analysis, show past or future buy / sell opportunities ("if this trend continues..." or "if you had bought on X day and sold on Y day")
-- Implement automated investment advice based on stock performance / news articles
-- Implement a news feed that gives you current events about the stock
-- Implement auto buy and auto sell, if the stock reaches a certain price at a certain time
-- Implement social network aspects, like private messaging, chat
 - Leaderboards showing increases and decreases in portfolio (edited)
 
 ## Setup/Installation Requirements
 * _For demonstration only,_
 * _locate this address (http://floating-scrubland-71604.herokuapp.com/) on your browser._
-
+&nbsp;
 * _For local deployment_
 * _Clone this repository_
 * _Open terminal and type 'git clone [git link]'_
@@ -55,11 +42,6 @@ _Stretch Goals
 * _psql [DATABASE_NAME] < database_backup.sql_
 * _createdb -T [DATABASE NAME] [TEST DATABASE NAME]_
 
-## Specs
-| Behavior                                       | Input                                 | Output                                       |
-| ---------------------------------------------- |:-------------------------------------:| --------------------------------------------:|
-| DB schema design for one-to-many relationship  | create products table                 |                                              |
-
 ## Known Bugs
 _No known bugs_
 
@@ -79,19 +61,3 @@ _Please contact us if you have any issues at: mabry1985@gmail.com_
 _This software is licensed under MIT license._
 
 Copyright (c) 2019 **Josh Mabry, Hugh Donkin, Tae Lee, and Alex Siegberg**
-
-
-# README
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
