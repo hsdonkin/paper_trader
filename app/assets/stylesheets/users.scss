@@ -6,19 +6,38 @@ purple = #A049F5 160 73 245 96
 gray = #292E1E */
 
 .registration-holder{
-  width: 30vw;
+  width: 30%;
   margin: auto;
   margin-top: 10vh;
+}
+
+.registration-holder h2{
+  color: #4DFFAB;
 }
 .registration-holder input{
   width: 100%;
   height: 1.5rem;
+  margin-bottom: 0.5rem;
+  all:unset;
+}
+
+.registration-holder .field input{
+  border: 1px #404040 solid;
+  height: 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .actions input{
   // get all the freakin styles off of devise forms
   all: unset;
+  margin-bottom: 0.5rem;
+}
+
+.actions a{
+  margin-bottom: 0.5rem;
 }
 
 .actions input:hover{
