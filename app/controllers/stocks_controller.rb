@@ -7,7 +7,6 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find_by_id(params[:id])
-
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check
 
