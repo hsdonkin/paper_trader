@@ -11,7 +11,7 @@ class Stock < ApplicationRecord
     if search_tables.length == 0
       a = RestClient::Request.execute(
           method: :get,
-          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
+          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
         search = JSON.parse(a)["bestMatches"].first
         symbol = search["1. symbol"]
         name = search["2. name"]
