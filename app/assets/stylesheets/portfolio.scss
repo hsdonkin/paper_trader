@@ -41,4 +41,16 @@
 
 .portfolio-trades{
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.positions{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.trades {
+  display: flex;
+  justify-content: center;
 }

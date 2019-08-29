@@ -11,12 +11,29 @@
     <h3>Positions</h3>
     <hr>
     <div class="positions">
+      <% list_counter = 0 %>
       <% @stocks.each do |s| %>
-      <div class="sm-stock-display">
-        <span class="symbol"><%= link_to s[:symbol], stock_path(s[:stock_id]) %></span>
-        <span class="price">$<%=s[:equity]%></span>
-        <span class="trade"><%= link_to "Trade", stock_path(s[:stock_id]) %></span>
-      </div>
+        <% list_counter += 1 %>
+        <% if list_counter == 1 %>
+          <div class="sm-stock-holder">
+        <% end %>
+
+        <% if list_counter == 5 %>
+          </div>
+          <div class="sm-stock-holder">
+        <% end %>
+
+        <div class="sm-stock-display">
+          <span class="symbol"><%= link_to s[:symbol], stock_path(s[:stock_id]) %></span>
+          <span class="price">$<%=s[:equity]%></span>
+          <span class="trade"><%= link_to "Trade", stock_path(s[:stock_id]) %></span>
+        </div>
+
+
+        <% if list_counter == @stocks.length %>
+          </div>
+        <% end %>
+
       <% end %>
     </div>
   </div>
@@ -26,11 +43,13 @@
     <hr>
     <% @trades = @trades.to_a.reverse %>
     <% @trades.each do |t| %>
-    <div class="sm-stock-display">
-      <span class="symbol"><%= link_to t[:symbol], stock_path(Stock.find_by_symbol(t[:symbol])) %></span>
-      <span class="price"><% if t[:quantity].positive? %> <%= "-"%><%else%><%="+"%><%end%>$<%=t[:price]-%></span>
-      <span class="quantity">Qty | <%= t[:quantity] %></span>
-    </div>
+      <div>
+        <div class="sm-stock-display">
+          <span class="symbol"><%= link_to t[:symbol], stock_path(Stock.find_by_symbol(t[:symbol])) %></span>
+          <span class="price"><% if t[:quantity].positive? %> <%= "-"%><%else%><%="+"%><%end%>$<%=t[:price]-%></span>
+          <span class="quantity">Qty | <%= t[:quantity] %></span>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
