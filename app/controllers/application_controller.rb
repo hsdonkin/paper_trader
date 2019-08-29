@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to '/stocks'
+  end
+  
 end
