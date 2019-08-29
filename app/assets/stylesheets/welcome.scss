@@ -24,7 +24,14 @@ gray = #292E1E */
   position: relative;
   padding: 0;
   margin: 0;
-  bottom: 180px;
+  bottom: 250px;
   width: 90%;
   z-index: -1;
+}
+
+.sign-up-btn{
+  padding: 1rem;
+  display: inline-block;
+  border-radius: 2rem;
+  background-color: #4DFFAB;
 }
