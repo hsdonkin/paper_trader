@@ -6,22 +6,22 @@
 #### By _**Josh Mabry, Hugh Donkin, Tae Lee, and Alex Siegberg**_
 
 ## Description
-_This app tracks real stocks in real-time and allows users to buy and sell stocks with fake currency. There's a leaderboard to track which user has profited the most from their stock purchases. The technologies we utilized was Ruby on Rails, JavaScript and Postgres with the Alpha Vantage API service for real-time stock information.
+_This app tracks real stocks in real-time and allows users to buy and sell stocks with fake currency. There's a leaderboard to track which user has profited the most from their stock purchases. The technologies we utilized was Ruby on Rails, JavaScript and Postgres with the Alpha Vantage API service for real-time stock information._
 
-_MVP Goals
-- View the price of a stock over time
-- View prices of many stocks over time
-- View a graph indicating the relative stock price
-- Track a portfolio of many stocks over time
-- "Buy" and "Sell" stocks of your portfolio
-- Indicate relevant stats about your portfolio
-- Leaderboards showing increases and decreases in portfolio (edited)
+_MVP Goals_
+* View the price of a stock over time
+* View prices of many stocks over time
+* View a graph indicating the relative stock price
+* Track a portfolio of many stocks over time
+* "Buy" and "Sell" stocks of your portfolio
+* Indicate relevant stats about your portfolio
+* Leaderboards showing increases and decreases in portfolio (edited)
 
 ## Setup/Installation Requirements
-* _For demonstration only,_
-* _locate this address (http://floating-scrubland-71604.herokuapp.com/) on your browser._
+ _For demonstration only,
+ locate this address (http://floating-scrubland-71604.herokuapp.com/) on your browser._
 &nbsp;
-* _For local deployment_
+ _For local deployment : _
 * _Clone this repository_
 * _Open terminal and type 'git clone [git link]'_
 * _Navigate to project directory using cd in terminal_
@@ -35,7 +35,7 @@ _MVP Goals
 * _open browser and locate localhost:3000_
 
 * _For database,
-* _in order to backup, please execute followings in terminal,_
+ in order to backup, please execute followings in terminal:_
 * _pg_dump [YOUR DATABASE NAME] > database_backup.sql_
 * _for database restore after clone, please execute followings in terminal_
 * _createdb [DATABASE NAME]_
