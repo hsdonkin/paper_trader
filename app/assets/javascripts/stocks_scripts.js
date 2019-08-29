@@ -46,6 +46,8 @@ if ($('.chart-holder').length){
 
     // below is the chart object
     // ctx is the canvas element
+    console.log(values_array);
+    console.log(log_time_array);
     var ctx = document.getElementById('stock-chart').getContext('2d');
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
@@ -125,12 +127,14 @@ if ($('.chart-holder').length){
 
   $('.buy-btn').click(function(){
     $('.sell-btn').fadeOut();
-    $('.buy-form').fadeIn();
+    $('.buy-btn').fadeOut();
+    $('.buy-form').delay(500).fadeIn();
   });
 
   $('.sell-btn').click(function(){
     $('.buy-btn').fadeOut();
-    $('.sell-form').fadeIn();
+    $('.sell-btn').fadeOut();
+    $('.sell-form').delay(500).fadeIn();
   });
 
 });

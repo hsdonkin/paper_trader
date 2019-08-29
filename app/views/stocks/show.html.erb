@@ -63,16 +63,14 @@
     <a href="javascript:void(0);" class="btn buy-btn hidden">Buy</a>
     <a href="javascript:void(0);" class="btn sell-btn hidden">Sell</a>
     <%= form_with(url: stock_trades_path(@stock), method: :post, class: "hidden buy-form") do %>
-    <h3>Buy Shares</h3>
-      <%= label_tag "Quantity" %>
-      <%= number_field_tag :buy_qty %>
-      <%= submit_tag "Buy" %>
+      <span style="color:gray;"><%= "\u25B6 " %></span>
+      <%= text_field_tag :buy_qty, nil, placeholder: "Qty", type: "number", class: "qty-field" %>
+      <%= submit_tag "Buy", :class=>"form-buy-btn" %>
     <% end %>
     <%= form_with(url: stock_trades_path(@stock), method: :post, class: "hidden sell-form") do %>
-    <h3>Sell Shares</h3>
-      <%= label_tag "Quantity" %>
-      <%= number_field_tag :sell_qty %>
-      <%= submit_tag "Sell" %>
+      <span><%= "\u25B6 " %></span>
+      <%= text_field_tag :sell_qty, nil, placeholder: "Qty", type:"number", class: "qty-field" %>
+      <%= submit_tag "Sell", :class=>"form-sell-btn"  %>
     <% end %>
   </div>
   </div>

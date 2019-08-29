@@ -146,7 +146,7 @@ gray = #292E1E */
   display: inline-block;
   margin: 0;
   margin-right: 0.2rem;
-  width: 4rem;
+
   background-color: #4DFFAB;
   padding: 0.3rem;
   border-radius: 0.5rem;
@@ -164,7 +164,7 @@ gray = #292E1E */
   display: inline-block;
   margin: 0;
   margin-left: 0.2rem;
-  width: 4rem;
+
   background-color: #FF7A4D;
   padding: 0.3rem;
   border-radius: 0.5rem;
@@ -181,6 +181,53 @@ gray = #292E1E */
 .btn {
   font-size: 1rem;
 }
+
+.qty-field{
+  all: unset;
+  display: inline;
+  width: 2.5rem;
+}
+
+.form-buy-btn{
+  border: none;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  color: white;
+  display: inline;
+  margin: 0;
+  margin-right: 0.2rem;
+  background-color: #4DFFAB;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.form-buy-btn:hover{
+  background-color: darken(#4DFFAB, 10%);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.form-sell-btn{
+  border: none;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  color: white;
+  display: inline;
+  margin: 0;
+  margin-right: 0.2rem;
+  background-color: #FF7A4D;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.form-sell-btn:hover{
+  background-color: darken(#FF7A4D, 10%);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
 .triangle-gain{
   display: inline;
   margin: 0;
