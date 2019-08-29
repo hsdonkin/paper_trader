@@ -46,6 +46,8 @@ if ($('.chart-holder').length){
 
     // below is the chart object
     // ctx is the canvas element
+    console.log(values_array);
+    console.log(log_time_array)
     var ctx = document.getElementById('stock-chart').getContext('2d');
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
