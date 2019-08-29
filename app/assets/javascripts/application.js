@@ -15,6 +15,7 @@
 // = require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require_tree .
 
 
 // javascript search bar
@@ -24,5 +25,3 @@ $(document).ready(function(){
     $('.nav-search').off();
   });
 });
-//= require Chart.min
-//= require_tree .
