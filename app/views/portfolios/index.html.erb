@@ -1,23 +1,36 @@
-<h1>Portfolio</h1>
-<% if current_user %>
-<span>Username: <%= current_user.username %><br></span>
-<span>Current Cash: $<%= current_user.cash %><br></span>
-<span>Total Equity: $<%= @total_equity %><br></span>
+<div class="portfolio-holder">
+  <h2>Portfolio</h2>
+  <h2>|</h2>
+  <h2><%= current_user.username %></h2>
+  <div class="portfolio-equity">
+    <h3>$<%= @total_equity %></h3>
+    <hr>
+    <h4>Total Equity</h4>
+  </div>
+  <div class="portfolio-positions">
+    <h3>Positions</h3>
+    <hr>
+    <div class="positions">
+      <% @stocks.each do |s| %>
+      <div class="sm-stock-display">
+        <span class="symbol"><%= link_to s[:symbol], stock_path(s[:stock_id]) %></span>
+        <span class="price">$<%=s[:equity]%></span>
+        <span class="trade"><%= link_to "Trade", stock_path(s[:stock_id]) %></span>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
-<h2>Current Holdings</h2>
-<% @stocks.each do |f| %>
-  <span><%= "#{f[:symbol]} | Quantity: #{f[:quantity]} | Equity: $#{f[:equity]}" %><br></span>
-<% end %>
-
-<h2>Leaderboard</h2>
-<% @leaderboard.each_with_index do |o, index| %>
-<span><%= "#{index+1} | #{o[0]} | #{o[1]}" %><br></span>
-<% end %>
-
-<h2>Trade History</h2>
-<% @trades.each do |f| %>
-  <span><%= "#{f[:date]} | #{f[:symbol]} | Quantity: #{f[:quantity]} | Price/share: $#{f[:price]}" %><br></span>
-<% end %>
-<% else %>
-<p>Please sign in.</p>
-<% end %>
+  <div class="portfolio-trades">
+    <h3>Trade History</h3>
+    <hr>
+    <% @trades = @trades.to_a.reverse %>
+    <% @trades.each do |t| %>
+    <div class="sm-stock-display">
+      <span class="symbol"><%= link_to t[:symbol], stock_path(Stock.find_by_symbol(t[:symbol])) %></span>
+      <span class="price"><% if t[:quantity].positive? %> <%= "-"%><%else%><%="+"%><%end%>$<%=t[:price]-%></span>
+      <span class="quantity">Qty | <%= t[:quantity] %></span>
+    </div>
+    <% end %>
+  </div>
+</div>

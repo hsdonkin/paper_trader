@@ -10,7 +10,7 @@ purple = #A049F5 160 73 245 96
 gray = #292E1E */
 
 .chart-holder{
-  width: 100%;
+  max-width: 1800px;
   margin: auto;
   text-align: center;
 }
@@ -67,6 +67,7 @@ gray = #292E1E */
   border-radius: 5px;
   height: 2rem;
   width: 30%;
+  min-width: 300px;
   margin: auto;
   text-align: center;
   margin-bottom: 1rem;

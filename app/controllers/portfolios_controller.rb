@@ -7,6 +7,8 @@ class PortfoliosController < ApplicationController
       @total_equity = Portfolio.total_equity(current_user)
       @leaderboard = Portfolio.leaderboard
       render :index
+    else
+      redirect_to '/'
     end
   end
 end
