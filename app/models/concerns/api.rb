@@ -21,8 +21,17 @@ module API
     def self.current_volume(symbol)
       call = RestClient::Request.execute(
         method: :get,
+<<<<<<< HEAD
         url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=30min&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
         JSON.parse(call)["Time Series (30min)"].first[1]["5. volume"]
+=======
+        url: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=#{symbol}&interval=30min&apikey=#{self.apikey_toggle}")
+        begin
+          JSON.parse(call)["Time Series (30min)"].first[1]["5. volume"]
+        rescue NoMethodError
+          raise ApiError
+        end
+>>>>>>> 6fb5cc4bfd0574aae57afb80af62f0c9b2cf5769
     end
 
     def self.current_price(symbol)

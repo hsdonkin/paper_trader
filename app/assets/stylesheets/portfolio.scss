@@ -1,0 +1,76 @@
+
+.portfolio-holder{
+  max-width: 800px;
+  margin: auto;
+}
+
+.portfolio-holder h2{
+  display: inline;
+}
+
+
+.portfolio-positions{
+  border: none;
+  margin: 0;
+  margin-top: 1rem;
+  height: 100%;
+}
+
+.portfolio-equity{
+  text-align:center;
+  width: 40%;
+  margin: auto;
+}
+.portfolio-equity h3{
+  font-size: 3rem;
+}
+
+.portfolio-equity h4{
+  color: gray;
+}
+
+.portfolio-holder hr{
+  border: none;
+  border-top: 1px solid gray;
+  margin-bottom: 1rem;
+}
+
+.portfolio-positions{
+  margin-bottom: 2rem;
+}
+
+.portfolio-trades{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.positions{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.trades {
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio-leaderboard{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.buy-stocks-prompt{
+  text-align: center;
+}
+
+.buy-stocks-prompt a{
+  background-color: #726EF5;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.buy-stocks-prompt a:hover{
+  color: white;
+  background-color: darken(#726EF5, 10%);
+}

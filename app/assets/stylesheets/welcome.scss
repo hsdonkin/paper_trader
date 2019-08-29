@@ -35,3 +35,10 @@ gray = #292E1E */
   border-radius: 2rem;
   background-color: #4DFFAB;
 }
+.sign-up-btn:hover{
+  background-color: darken(#4DFFAB, 10%);
+}
+
+.sign-up-btn a:hover{
+  color: white;
+}

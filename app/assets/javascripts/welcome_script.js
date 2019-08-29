@@ -15,7 +15,8 @@ $(document).on('turbolinks:load',function(){
              data: [10,15,12,22,18,25,22,29,27,50],
              label: "Africa",
              borderColor: borderColor,
-             fill: false
+             fill: false,
+             pointRadius: 0
            }
          ]
        },
@@ -31,7 +32,7 @@ $(document).on('turbolinks:load',function(){
                   color: "gray"
                 },
                 ticks: {
-                    display:false, // this here
+                    display:false,
                   },
                   display:false
             }],
