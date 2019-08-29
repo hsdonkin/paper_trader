@@ -46,6 +46,8 @@ if ($('.chart-holder').length){
 
     // below is the chart object
     // ctx is the canvas element
+    console.log(values_array);
+    console.log(log_time_array);
     var ctx = document.getElementById('stock-chart').getContext('2d');
     Chart.defaults.global.elements.point.borderWidth = 0;
     Chart.defaults.global.animation.easing = 'linear';
@@ -114,8 +116,25 @@ if ($('.chart-holder').length){
         }
     });
 
+  }
 
-
-}
-
+  // logic for Trade button show hide
+  $('.trade-btn').click(function(){
+    $('.trade-btn').hide();
+      $('.buy-btn').fadeIn(200);
+      $('.sell-btn').fadeIn(200);
   });
+
+  $('.buy-btn').click(function(){
+    $('.sell-btn').fadeOut();
+    $('.buy-btn').fadeOut();
+    $('.buy-form').delay(500).fadeIn();
+  });
+
+  $('.sell-btn').click(function(){
+    $('.buy-btn').fadeOut();
+    $('.sell-btn').fadeOut();
+    $('.sell-form').delay(500).fadeIn();
+  });
+
+});
