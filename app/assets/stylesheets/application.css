@@ -14,21 +14,20 @@
  *= require_self
  */
 
-
 /* yellow = #E8DB51 232 219 81 91
 blue = #726EF5 114 110 245 96
 green = #4DFFAB 77 255 171 100
 red = #FF7A4D 255 122 77 100
 purple = #A049F5 160 73 245 96
-gray = #292E1E */
+gray = #2d2d2d */
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   color: white;
-  background-color: #2D2D2D;
+  background-color: #2d2d2d;
 }
 
-.main-content{
+.main-content {
   width: 80%;
   margin: auto;
 }
@@ -45,55 +44,80 @@ a:visited {
 }
 /* mouse over link */
 a:hover {
-  color: #4DFFAB;
+  color: #4dffab;
   text-decoration: none;
 }
 /* selected link */
 a:active {
-  color: #4DFFAB;
+  color: #4dffab;
   text-decoration: none;
 }
 
-.navbar{
+.navbar {
   height: 3rem;
 }
-.nav-left{
+.nav-left {
   height: 100%;
   display: inline;
   float: left;
 }
-.nav-right{
-
+.nav-right {
   height: 100%;
   display: inline;
-  float:right;
+  float: right;
 }
-.nav-right a{
+.nav-right a {
   position: relative;
   bottom: 0px;
 }
 
-.nav-search{
+.nav-search {
   float: left;
   display: flex;
 }
-.nav-search input{
+.nav-search input {
   all: unset;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   display: inline;
-
 }
 
-.nav-search input:focus{
+.nav-search input:focus {
   /* all: unset; */
   float: left;
 }
 
-.nav-search span{
+.nav-search span {
   color: gray;
 }
 
 .hidden {
   display: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 6rem;
+}
+
+hr {
+  border: none;
+  width: 30%;
+  border-top: 0.5px solid gray;
+}
+
+footer ul {
+  text-align: center;
+}
+footer li {
+  text-align: center;
+  display: block;
+  margin: 0;
+  position: relative;
+  left: -1.5rem;
+  color: gray;
+  font-size: 0.5rem;
+  list-style: none;
 }
