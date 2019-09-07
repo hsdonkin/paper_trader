@@ -1,4 +1,3 @@
-require 'byebug'
 class PortfoliosController < ApplicationController
   def index
     if current_user

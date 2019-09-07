@@ -9,44 +9,45 @@ red = #FF7A4D 255 122 77 100
 purple = #A049F5 160 73 245 96
 gray = #292E1E */
 
-.chart-holder{
+.chart-holder {
   max-width: 1800px;
   margin: auto;
   text-align: center;
 }
 
-.chart-holder canvas{
+.chart-holder canvas {
   display: block;
   margin: auto;
   padding: 0;
 }
 
-.stock-header h2,h3{
+.stock-header h2,
+h3 {
   display: inline;
 }
 
-.stock-header-left{
+.stock-header-left {
   display: inline;
   float: left;
 }
-.stock-header-right{
+.stock-header-right {
   display: inline;
   float: right;
 }
 
-.stock-info-left{
+.stock-info-left {
   width: 33%;
   margin: 0;
   float: left;
   text-align: left;
 }
-.stock-info-mid{
+.stock-info-mid {
   width: 33%;
   margin: 0;
   float: left;
   text-align: left;
 }
-.stock-info-right{
+.stock-info-right {
   width: 33%;
   margin: 0;
   float: right;
@@ -57,18 +58,18 @@ gray = #292E1E */
   display: block;
 }
 
-.stock-info h3{
+.stock-info h3 {
   margin-left: 5rem;
   display: block;
 }
 
-.sm-stock-holder{
+.sm-stock-holder {
   display: inline;
   border: none;
   margin: 0;
 }
 
-.sm-stock-display{
+.sm-stock-display {
   border: 1px gray solid;
   border-radius: 5px;
   display: inline-block;
@@ -83,106 +84,114 @@ gray = #292E1E */
   padding-top: 0.5rem;
 }
 
-.sm-stock-display canvas{
+.sm-stock-display canvas {
   margin: auto;
   border: 1px solid red;
   height: 3rem;
   width: 5rem;
 }
 
-.sm-stock-display .symbol{
+.sm-stock-display .symbol {
   width: 33%;
   margin: 0;
   float: left;
 }
 
-.sm-stock-display .price{
+.sm-stock-display .price {
   width: 33%;
   margin: 0;
   float: right;
   margin-right: 0.6rem;
 }
 
-.sm-stock-display .trade{
+.sm-stock-display .trade {
   width: 33%;
   margin: 0;
-  background-color: #726EF5;
+  background-color: #726ef5;
   padding: 0.2rem;
   border-radius: 0.5rem;
 }
 
-.sm-stock-display .trade:hover{
-  background-color: darken(#726EF5, 10%);
+.sm-stock-display .trade:hover {
+  background-color: darken(#726ef5, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
-.sm-stock-display .trade a:hover{
+.sm-stock-display .trade a:hover {
   color: white;
 }
 
-.stock-buy-sell{
-  margin-bottom: 1rem;
+.stock-buy-sell {
+  height: 3rem;
+  margin-bottom: 2rem;
 }
 
-.stock-holding-col3{
+.stock-holding-col4 {
   display: inline;
   float: left;
-  width: 33%;
+  width: 25%;
   border: 0;
   margin: 0;
   text-align: center;
+}
+
+.stock-holding-col4 h3 {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.75rem;
 }
 
 .trade-btn {
   display: inline-block;
   margin: 0;
   width: 3rem;
-  background-color: #726EF5;
+  background-color: #726ef5;
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
 
-.trade-btn:hover{
+.trade-btn:hover {
   display: inline-block;
-  background-color: darken(#726EF5, 10%);
+  background-color: darken(#726ef5, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
-.buy-btn{
+.buy-btn {
   display: inline-block;
   margin: 0;
   margin-right: 0.2rem;
 
-  background-color: #4DFFAB;
+  background-color: #4dffab;
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
 
-.buy-btn:hover{
+.buy-btn:hover {
   display: inline-block;
-  background-color: darken(#4DFFAB, 10%);
+  background-color: darken(#4dffab, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
-.sell-btn{
+.sell-btn {
   display: inline-block;
   margin: 0;
   margin-left: 0.2rem;
 
-  background-color: #FF7A4D;
+  background-color: #ff7a4d;
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
 
-.sell-btn:hover{
+.sell-btn:hover {
   display: inline-block;
-  background-color: darken(#FF7A4D, 10%);
+  background-color: darken(#ff7a4d, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
@@ -192,81 +201,97 @@ gray = #292E1E */
   font-size: 1rem;
 }
 
-.qty-field{
+.qty-field {
   all: unset;
   display: inline;
   width: 2.5rem;
 }
 
-.form-buy-btn{
+.form-buy-btn {
   border: none;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-size: 1rem;
   color: white;
   display: inline;
   margin: 0;
   margin-right: 0.2rem;
-  background-color: #4DFFAB;
+  background-color: #4dffab;
   padding: 0.3rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.form-buy-btn:hover{
-  background-color: darken(#4DFFAB, 10%);
+.form-buy-btn:hover {
+  background-color: darken(#4dffab, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
-.form-sell-btn{
+.form-sell-btn {
   border: none;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-size: 1rem;
   color: white;
   display: inline;
   margin: 0;
   margin-right: 0.2rem;
-  background-color: #FF7A4D;
+  background-color: #ff7a4d;
   padding: 0.3rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.form-sell-btn:hover{
-  background-color: darken(#FF7A4D, 10%);
+.form-sell-btn:hover {
+  background-color: darken(#ff7a4d, 10%);
   text-decoration: none;
   color: white;
   cursor: pointer;
 }
 
-.triangle-gain{
+.triangle-gain {
   display: inline;
   margin: 0;
   padding: 0;
   margin-left: 0.3rem;
-  color: #4DFFAB;
+  color: #4dffab;
 }
 .triangle-loss {
   display: inline;
   margin: 0;
   padding: 0;
   margin-left: 0.3rem;
-  color: #FF7A4D;
+  color: #ff7a4d;
 }
 
-.bad-flash{
+.bad-flash {
   text-align: center;
   width: 30%;
   min-width: 100px;
   margin: auto;
   margin-bottom: 2rem;
-  background-color: #FF7A4D;
+  background-color: #ff7a4d;
   padding: 1rem;
   border-radius: 2rem;
 }
 
+.trade-fail-flash {
+  text-align: center;
+}
+
+.trade-fail-flash p::first-letter {
+  color: #ff7a4d;
+}
+
+.trade-success-flash {
+  text-align: center;
+}
+
+.trade-success-flash p::first-letter {
+  color: #4dffab;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

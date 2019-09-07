@@ -1,4 +1,3 @@
-require 'byebug'
 class StocksController < ApplicationController
 
   def index
@@ -7,6 +6,7 @@ class StocksController < ApplicationController
   end
 
   def show
+
     if Stock.find_by_id(params[:id])
       @stock = Stock.find_by_id(params[:id])
     else
@@ -15,6 +15,7 @@ class StocksController < ApplicationController
 
     Value.populate_value_check(@stock.symbol)
     @stock.gain_check
+    Stock.update_stock(@stock.symbol)
 
     if current_user
       @portfolio = Portfolio.where({user_id: [current_user.id], stock_id: [params[:id]]})

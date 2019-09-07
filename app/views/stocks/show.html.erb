@@ -38,18 +38,22 @@
 <% if current_user %>
   <div class="stock-buy-sell">
   <div class="stock-holdings">
-    <div class="stock-holding-col3">
-      <h3>Shares:</h3>
+    <div class="stock-holding-col4">
+      <h3>Shares Owned:</h3>
 
       <h3>
         <% if @portfolio.any? %>
-          <%= @portfolio[0]["shares"] %>
+          <% if @portfolio[0]["shares"] > 1 %>
+            <%= @portfolio[0]["shares"] %> Shares
+            <% else %>
+            <%= @portfolio[0]["shares"] %> Share
+          <% end %>
           <% else %>
-          0
+          0 Shares
           <% end %>
       </h3>
     </div>
-    <div class="stock-holding-col3">
+    <div class="stock-holding-col4">
       <h3>Current Equity Value:</h3>
       <% if @equity != nil %>
         <h3>$<%= @equity %></h3>
@@ -57,8 +61,12 @@
         <h3>$0</h3>
       <% end %>
     </div>
+    <div class="stock-holding-col4">
+      <h3>Spending Power: </h3>
+      <h3>$<%= current_user.cash %></h3>
+    </div>
   </div>
-  <div class="stock-holding-col3">
+  <div class="stock-holding-col4">
     <a href="javascript:void(0);" class="btn trade-btn">Trade</a>
     <a href="javascript:void(0);" class="btn buy-btn hidden">Buy</a>
     <a href="javascript:void(0);" class="btn sell-btn hidden">Sell</a>
@@ -69,11 +77,19 @@
     <% end %>
     <%= form_with(url: stock_trades_path(@stock), method: :post, class: "hidden sell-form") do %>
       <span><%= "\u25B6 " %></span>
-      <%= text_field_tag :sell_qty, nil, placeholder: "Qty", type:"number", max: 0, class: "qty-field" %>
+      <%= text_field_tag :sell_qty, nil, placeholder: "Qty", type:"number", min: 0, class: "qty-field" %>
       <%= submit_tag "Sell", :class=>"form-sell-btn"  %>
     <% end %>
   </div>
   </div>
+
+  <%# flash notice to confirm successful buy / sell %>
+  <% if flash[:notice] %>
+    <div class= <%= flash[:notice]["class"] %>>
+      <p><%= flash[:notice]["msg"] %></p>
+    </div>
+  <% end %>
+
 <% end %>
 
 </div>

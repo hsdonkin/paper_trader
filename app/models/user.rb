@@ -40,7 +40,7 @@ class User < ApplicationRecord
       trade.save
       @user.save
     else
-      flash[:notice] = "Trade was not authorized, insufficient funds."
+      return false
     end
   end
 
@@ -57,7 +57,7 @@ class User < ApplicationRecord
       trade.save
       @user.save
     else
-      flash[:notice] = "Trade was not authorized."
+      return false
     end
   end
 end

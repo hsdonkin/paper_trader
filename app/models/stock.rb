@@ -1,6 +1,3 @@
-
-require 'byebug'
-
 class Stock < ApplicationRecord
   has_many :values
   has_many :users, through: :portfolios
@@ -14,7 +11,7 @@ class Stock < ApplicationRecord
     if search_tables.length == 0
       a = RestClient::Request.execute(
           method: :get,
-          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{Stock::Call.apikey_toggle}")
+          url: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{query}&apikey=#{ENV['ALPHA_VANTAGE_API_KEY']}")
         search = JSON.parse(a)["bestMatches"].first
 
         begin
@@ -41,14 +38,10 @@ class Stock < ApplicationRecord
 
   def self.update_stock(symbol)
     stock = Stock.find_by_symbol(symbol)
-
-    if stock.updated_at < Time.now.utc - 300
-      volume = Stock::Call.current_volume(symbol)
-      current_price = Stock::Call.current_price(symbol)
-      daily_open = Stock::Call.daily_open(symbol)
-      stock.update(:current_price => current_price, :daily_open => daily_open, :volume => volume)
-
-    end
+    volume = Stock::Call.current_volume(symbol)
+    current_price = Stock::Call.current_price(symbol)
+    daily_open = Stock::Call.daily_open(symbol)
+    stock.update!(:current_price => current_price, :daily_open => daily_open, :volume => volume)
     stock
   end
 
