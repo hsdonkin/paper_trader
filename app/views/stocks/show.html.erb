@@ -69,11 +69,19 @@
     <% end %>
     <%= form_with(url: stock_trades_path(@stock), method: :post, class: "hidden sell-form") do %>
       <span><%= "\u25B6 " %></span>
-      <%= text_field_tag :sell_qty, nil, placeholder: "Qty", type:"number", max: 0, class: "qty-field" %>
+      <%= text_field_tag :sell_qty, nil, placeholder: "Qty", type:"number", min: 0, class: "qty-field" %>
       <%= submit_tag "Sell", :class=>"form-sell-btn"  %>
     <% end %>
   </div>
   </div>
+
+  <%# flash notice to confirm successful buy / sell %>
+  <% if flash[:notice] %>
+    <div class= <%= flash[:notice]["class"] %>>
+      <p><%= flash[:notice]["msg"] %></p>
+    </div>
+  <% end %>
+
 <% end %>
 
 </div>
