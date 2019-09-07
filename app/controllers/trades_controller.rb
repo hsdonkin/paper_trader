@@ -13,7 +13,7 @@ class TradesController < ApplicationController
 
     elsif params[:commit] == "Sell"
       if current_user.sell_stock(current_user, stock, params[:sell_qty].to_i) == false
-        flash[:notice] = {:msg => "\u25B6 Trade not authorized, insufficient stock.", :class=> "trade-fail-flash"}
+        flash[:notice] = {:msg => "\u25B6 Trade not authorized, insufficient shares.", :class=> "trade-fail-flash"}
       else
         flash[:notice] = {:msg => "\u25B6 Trade successful!", :class=> "trade-success-flash"}
         current_user.portfolio_update(current_user)
